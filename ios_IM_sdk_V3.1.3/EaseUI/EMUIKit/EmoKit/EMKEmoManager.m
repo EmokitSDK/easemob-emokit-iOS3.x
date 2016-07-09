@@ -15,6 +15,8 @@
 
 @interface EMKEmoManager ()
 
+@property(nonatomic, copy)NSString  *appKey;
+@property(nonatomic, copy)NSString  *appId;
 @property(nonatomic, strong)NSDictionary *emoResultDictionary;
 
 @end
@@ -45,11 +47,17 @@
     return manager;
 }
 
++ (void)startAppKey:(NSString *)appKey AppId:(NSString *)appId
+{
+    [EMKEmoManager shareInstance].appKey = appKey;
+    [EMKEmoManager shareInstance].appId = appId;
+}
+
 - (void)requestEmoWithAudioData:(NSData *)data messageModel:(id)model completionHandler:(void(^)(NSString *emo, BOOL finished))completionHandler
 {
     NSMutableDictionary *paramDic = [[NSMutableDictionary alloc] init];
-    [paramDic setObject:@"100001" forKey:@"appid"];
-    [paramDic setObject:@"98cd22f6f90141f8f1876dd2f5a27ea5" forKey:@"key"];
+    [paramDic setObject:self.appId forKey:@"appid"];
+    [paramDic setObject:self.appKey forKey:@"key"];
     [paramDic setObject:@"iOS huanxin" forKey:@"platid"];
     [paramDic setObject:[EMKOpenUDID value] forKey:@"uid"];
     [paramDic setObject:@"2" forKey:@"type  "];
