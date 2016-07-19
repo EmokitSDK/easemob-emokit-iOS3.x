@@ -29,7 +29,7 @@ AppId:@"100001"];
 # 3.	附录
 3.1 注意事项  
 由于 github 对文件大小有限制，所以需要通过此下载链接
-http://downloads.easemob.com/downloads/ios-easemob-sdk-2.2.6.zip 下载文件，
+http://downloads.easemob.com/downloads/ios_IM_sdk_V3.1.3.zip 下载文件，
 把/HyphenateFullSDK/lib和/HyphenateSDK/lib下的两个.a
 文件都添加到 github 工程对应的路径下，否则编译会出现
 缺少这两个.a 文件的错误。 
